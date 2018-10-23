@@ -7,7 +7,7 @@ public class App extends JFrame {
 
     private JButton btn_client = new JButton("Click for Client");
 
-    public App(){
+    private App(){
         setLayout(new BorderLayout());
         add(btn_client, BorderLayout.CENTER);
 

@@ -23,10 +23,6 @@ public class Client extends JFrame {
     private DataOutputStream toServer;
     private DataInputStream fromServer;
 
-    public static void main(String[] args) {
-        new Client();
-    }
-
     public Client() {
         // Panel p to hold the label and text field
         JPanel p = new JPanel();
@@ -55,8 +51,6 @@ public class Client extends JFrame {
         try {
             // Create a socket to connect to the server
             Socket socket = new Socket("localhost", 8000);
-            // Socket socket = new Socket("130.254.204.36", 8000);
-            // Socket socket = new Socket("drake.Armstrong.edu", 8000);
 
             // Create an input stream to receive data from the server
             fromServer = new DataInputStream(socket.getInputStream());

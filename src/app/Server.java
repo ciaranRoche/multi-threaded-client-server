@@ -1,7 +1,11 @@
 package app;
 
+import utils.JDBCConnector;
+
 import java.io.*;
 import java.net.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
@@ -12,11 +16,9 @@ public class Server extends JFrame{
 
     private JButton exit_btn = new JButton("Exit");
 
-    public static void main(String[] args) {
-        new Server();
-    }
+    private JDBCConnector conn = new JDBCConnector();
 
-    public Server() {
+    public Server(){
         // Place text area on the frame
         setLayout(new BorderLayout());
         add(new JScrollPane(jta), BorderLayout.CENTER);
@@ -30,9 +32,20 @@ public class Server extends JFrame{
         exit_btn.addActionListener(e -> System.exit(0));
 
         try {
+            ResultSet set = conn.getRecords();
+            if (set.next()){
+                jta.append("We gots those Records");
+            } else {
+                jta.append("Looks like we aint got no Records");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
             // Create a server socket
             ServerSocket serverSocket = new ServerSocket(8000);
-            jta.append("Server started at " + new Date() + '\n');
+            jta.append("\nServer started at " + new Date() + '\n');
 
             while(true){
                 Socket socket = serverSocket.accept();
@@ -42,7 +55,9 @@ public class Server extends JFrame{
             } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
 }
 
 class ServerThread extends Thread{
