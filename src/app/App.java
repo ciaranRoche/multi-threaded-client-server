@@ -1,5 +1,8 @@
 package app;
 
+import models.Client;
+import models.Server;
+
 import javax.swing.*;
 import java.awt.*;
 
