@@ -16,7 +16,6 @@ public class App extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-
         btn_client.addActionListener(e -> new Client());
 
     }

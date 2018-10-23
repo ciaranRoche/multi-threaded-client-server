@@ -1,14 +1,5 @@
 package app;
 
-
-/*
- * Author
- * Project
- * Date
- * About
- *
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -47,8 +38,6 @@ public class Client extends JFrame {
 
         jtf.setHorizontalAlignment(JTextField.RIGHT);
 
-
-
         setLayout(new BorderLayout());
         add(p, BorderLayout.NORTH);
         add(new JScrollPane(jta), BorderLayout.CENTER);
@@ -84,24 +73,7 @@ public class Client extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-//                double radius = Double.parseDouble(jtf.getText().trim());
-                String action = e.getActionCommand();
-//                switch(action) {
-//                    case "SEND":
-//                        System.out.println("SEND BOOP");
-//                        toServer.writeDouble(radius);
-//                        toServer.flush();
-//                        break;
-//                    default:
-//                        System.out.println("Hello");
-//                        double area = fromServer.readDouble();
-//                        jta.append("Radius is " + radius + "\n");
-//                        jta.append("Area received from the server is "
-//                                + area + '\n');
-//                        break;
-//
-//                }
-//                 Get the radius from the text field
+            // Get the radius from the text field
             double radius = Double.parseDouble(jtf.getText().trim());
 
             // Send the radius to the server
