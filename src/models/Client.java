@@ -80,20 +80,18 @@ public class Client extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-            // Get the radius from the text field
-            double radius = Double.parseDouble(jtf.getText().trim());
+            // Get the id from the text input
+            String id = jtf.getText().trim();
 
             // Send the radius to the server
-            toServer.writeDouble(radius);
+            toServer.writeUTF(id);
             toServer.flush();
 
-            // Get area from the server
-            double area = fromServer.readDouble();
+            // Get response from server
+            String response = fromServer.readUTF();
 
             // Display to the text area
-            jta.append("Radius is " + radius + "\n");
-            jta.append("Area received from the server is "
-              + area + '\n');
+            jta.append(response + "\n");
 
             }
             catch (IOException ex) {
