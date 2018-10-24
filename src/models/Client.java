@@ -13,9 +13,16 @@ public class Client extends JFrame {
     // Text field for receiving radius
     private JTextField jtf = new JTextField();
 
+    // Label
+    JLabel textLabel = new JLabel("Enter Student Number ->");
+
+    // New Split plane for input
+    private JSplitPane sp;
+
     // Text area to display contents
     private JTextArea jta = new JTextArea();
 
+    // Buttons for send and exit
     private JButton btn_exit = new JButton("EXIT");
     private JButton btn_send = new JButton("SEND");
 
@@ -23,14 +30,18 @@ public class Client extends JFrame {
     private DataOutputStream toServer;
     private DataInputStream fromServer;
 
+    // Client Constructor
     public Client() {
-        // Panel p to hold the label and text field
+        // Split panel sp to hold Label and text input
+        sp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, textLabel, jtf);
+
+        // Panel p to hold the label and text field and split panel
         JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
         p.add(new JLabel("Enter radius"), BorderLayout.WEST);
-        p.add(jtf, BorderLayout.CENTER);
-        p.add(btn_send, BorderLayout.WEST);
-        p.add(btn_exit, BorderLayout.EAST);
+        p.add(sp, BorderLayout.CENTER);
+        p.add(btn_send, BorderLayout.EAST);
+        p.add(btn_exit, BorderLayout.WEST);
 
         jtf.setHorizontalAlignment(JTextField.RIGHT);
 
@@ -40,8 +51,9 @@ public class Client extends JFrame {
 
         jtf.addActionListener(new Listener()); // Register listener
 
+        // Add action listener to buttons
         btn_send.addActionListener(new Listener());
-        btn_exit.addActionListener(e -> System.exit(0));
+        btn_exit.addActionListener(e -> dispose()); // Lamda close window
 
         setTitle("Client");
         setSize(500, 300);
@@ -63,6 +75,7 @@ public class Client extends JFrame {
         }
     }
 
+    // Listener class for client actions
     private class Listener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
