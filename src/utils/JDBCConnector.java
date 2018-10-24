@@ -4,8 +4,16 @@ import java.sql.*;
 
 import java.util.Properties;
 
+
 /*
-Sets up a JDBC connection
+AUTHOR : Ciaran Roche
+DATE : 24/OCT/2018
+
+ABOUT : Class JDBCConnector
+        Provides methods for:
+            creating connection to DB
+            returning all records from DB
+            returning single record from DB
  */
 public class JDBCConnector {
 

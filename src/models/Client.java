@@ -9,6 +9,16 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+
+/*
+AUTHOR : Ciaran Roche
+DATE : 24/OCT/2018
+
+ABOUT : Class Client extends JFrame,
+        Creates socket to Server
+        Allows for input of student id
+        Accepts response from Server
+ */
 public class Client extends JFrame {
     // Text field for receiving radius
     private JTextField jtf = new JTextField();
@@ -23,7 +33,7 @@ public class Client extends JFrame {
     private JTextArea jta = new JTextArea();
 
     // Buttons for send and exit
-    private JButton btn_exit = new JButton("EXIT");
+    private JButton btn_exit = new JButton("CLOSE CLIENT");
     private JButton btn_send = new JButton("SEND");
 
     // IO streams

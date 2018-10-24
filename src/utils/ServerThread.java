@@ -7,6 +7,17 @@ import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
+AUTHOR : Ciaran Roche
+DATE : 24/OCT/2018
+
+ABOUT : Class ServerThread extends Thread,
+        Handles Sockets from Server class
+        Checks DB via JDBC for Student id
+        Return valid response for found Student id
+        Returns response and closes socket for not found Student id
+ */
+
 public class ServerThread extends Thread{
 
     public Socket socket;

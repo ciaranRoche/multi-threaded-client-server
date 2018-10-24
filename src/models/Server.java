@@ -9,11 +9,21 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
+/*
+AUTHOR : Ciaran Roche
+DATE : 24/OCT/2018
+
+ABOUT : Class Server extends JFRAME,
+        Checks for connection through JDBC
+        Creates JFRAME for logging details,
+        Creates Multi Threads for open sockets
+ */
+
 public class Server extends JFrame{
     // Text area for displaying contents
     private JTextArea jta = new JTextArea();
 
-    private JButton exit_btn = new JButton("Exit");
+    private JButton exit_btn = new JButton("Exit App");
 
     private JDBCConnector conn = new JDBCConnector();
 
@@ -36,7 +46,7 @@ public class Server extends JFrame{
             // Create a server socket
             ServerSocket serverSocket = new ServerSocket(8000);
             jta.append("\nServer started at " + new Date() + '\n');
-
+            // Create threads for incoming sockets
             while(true){
                 Socket socket = serverSocket.accept();
                 if (socket.isConnected()){
@@ -59,10 +69,5 @@ public class Server extends JFrame{
             e.printStackTrace();
         }
     }
-
-    public void appendJTA(String s){
-        jta.append(s);
-    }
-
 }
 
