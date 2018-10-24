@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.stream.Stream;
 
 public class ServerThread extends Thread{
 
@@ -23,7 +22,7 @@ public class ServerThread extends Thread{
         try {
             DataInputStream inputFromClient = new DataInputStream(
                     socket.getInputStream());
-        DataOutputStream outputToClient = new DataOutputStream(
+            DataOutputStream outputToClient = new DataOutputStream(
                 socket.getOutputStream());
 
             while (true) {

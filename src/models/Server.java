@@ -2,7 +2,6 @@ package models;
 
 import utils.JDBCConnector;
 import utils.ServerThread;
-
 import java.io.*;
 import java.net.*;
 import java.sql.SQLException;
@@ -40,6 +39,9 @@ public class Server extends JFrame{
 
             while(true){
                 Socket socket = serverSocket.accept();
+                if (socket.isConnected()){
+                    jta.append("Processing. . .\n");
+                }
                 Thread thread = new ServerThread(socket);
                 thread.start();
                 }
@@ -56,6 +58,10 @@ public class Server extends JFrame{
             jta.append("Connection to Database Failed");
             e.printStackTrace();
         }
+    }
+
+    public void appendJTA(String s){
+        jta.append(s);
     }
 
 }
