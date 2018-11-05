@@ -67,7 +67,7 @@ public class Client extends JFrame {
 
         setTitle("Client");
         setSize(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true); // It is necessary to show the frame here!
 
         try {
