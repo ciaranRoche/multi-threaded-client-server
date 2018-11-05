@@ -31,7 +31,7 @@ public class JDBCConnector {
     private final int portNumber = 3306;
 
     /** The name of the database we are testing with (this default is installed with MySQL) */
-    private final String dbName = "assignmentDB";
+    private final String dbName = "Assign2";
 
 
     /*
@@ -54,7 +54,7 @@ public class JDBCConnector {
     public ResultSet getRecords() throws SQLException{
         Statement stmt = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE);
-        String sqlGet = "SELECT * FROM Student";
+        String sqlGet = "SELECT * FROM myStudents";
         stmt.executeQuery(sqlGet);
         ResultSet rs = stmt.getResultSet();
         return rs;
@@ -66,7 +66,7 @@ public class JDBCConnector {
     public ResultSet returnRecord(String id) throws SQLException{
         Statement stmt = getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE);
-        String sqlGet = "SELECT * FROM Student WHERE STUD_ID ='" + id + "'";
+        String sqlGet = "SELECT * FROM myStudents WHERE STUD_ID ='" + id + "'";
         stmt.executeQuery(sqlGet);
         ResultSet rs = stmt.getResultSet();
         return rs;

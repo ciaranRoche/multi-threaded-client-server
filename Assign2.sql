@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2018 at 01:27 PM
+-- Generation Time: Nov 05, 2018 at 08:13 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -19,16 +19,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `assignmentDB`
+-- Database: `Assign2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Student`
+-- Table structure for table `myStudents`
 --
 
-CREATE TABLE `Student` (
+CREATE TABLE `myStudents` (
   `SID` int(2) NOT NULL,
   `STUD_ID` int(8) NOT NULL,
   `FNAME` varchar(20) NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `Student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Student`
+-- Dumping data for table `myStudents`
 --
 
-INSERT INTO `Student` (`SID`, `STUD_ID`, `FNAME`, `SNAME`) VALUES
+INSERT INTO `myStudents` (`SID`, `STUD_ID`, `FNAME`, `SNAME`) VALUES
 (1, 12345678, 'Jimmy ', 'Skinner'),
 (2, 87654321, 'Jakey', 'Shakes');
 
@@ -48,9 +48,9 @@ INSERT INTO `Student` (`SID`, `STUD_ID`, `FNAME`, `SNAME`) VALUES
 --
 
 --
--- Indexes for table `Student`
+-- Indexes for table `myStudents`
 --
-ALTER TABLE `Student`
+ALTER TABLE `myStudents`
   ADD PRIMARY KEY (`SID`);
 COMMIT;
 
